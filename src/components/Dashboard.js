@@ -148,14 +148,7 @@ class Dashboard extends Component {
 
         else if (isLoaded) {
             return (
-                <div onClick={() => {
-                    if (window.innerWidth < 768 && this.state.pointer == true) {
-                        document.getElementById('data_cust').style.left = '-42px';
-                        document.getElementById('data_cust').style.transition = '0.8s';
-                        document.getElementById('data_cust').style.width = '0px';
-                        this.setState({ pointer: false });
-                    }
-                }}>
+                <div >
                     <div id='data_cust' onMouseLeave={() => {
                         document.getElementById('data_cust').style.left = '-42px';
                         document.getElementById('data_cust').style.transition = '0.8s';
@@ -176,11 +169,25 @@ class Dashboard extends Component {
                         {window.innerWidth > 768 && <br />}
                         {
                             this.state.removal_items.length == 0 &&
-                            <p onClick={() => { this.setState({ removal: true }) }} style={{ cursor: 'pointer', borderRadius: '5px', textAlign: 'center', padding: '8px', marginTop: '15px', fontSize: '17px', fontWeight: '600', fontFamily: 'Helvetica', color: 'white', overflow: 'hidden', backgroundColor: 'red' }}>Remove data fields</p>
+                            <p onClick={() => {
+                                this.setState({ removal: true }); if (window.innerWidth < 768 && this.state.pointer == true) {
+                                    document.getElementById('data_cust').style.left = '-42px';
+                                    document.getElementById('data_cust').style.transition = '0.8s';
+                                    document.getElementById('data_cust').style.width = '0px';
+                                    this.setState({ pointer: false });
+                                }
+                            }} style={{ cursor: 'pointer', borderRadius: '5px', textAlign: 'center', padding: '8px', marginTop: '15px', fontSize: '17px', fontWeight: '600', fontFamily: 'Helvetica', color: 'white', overflow: 'hidden', backgroundColor: 'red' }}>Remove data fields</p>
                         }
                         {
                             this.state.removal_items.length > 0 &&
-                            <p onClick={() => { this.clearence() }} style={{ cursor: 'pointer', borderRadius: '5px', textAlign: 'center', padding: '8px', marginTop: '15px', fontSize: '17px', fontWeight: '600', fontFamily: 'Helvetica', color: 'white', overflow: 'hidden', backgroundColor: '#fe3b08' }}>Reset data fields</p>
+                            <p onClick={() => {
+                                this.clearence(); if (window.innerWidth < 768 && this.state.pointer == true) {
+                                    document.getElementById('data_cust').style.left = '-42px';
+                                    document.getElementById('data_cust').style.transition = '0.8s';
+                                    document.getElementById('data_cust').style.width = '0px';
+                                    this.setState({ pointer: false });
+                                }
+                            }} style={{ cursor: 'pointer', borderRadius: '5px', textAlign: 'center', padding: '8px', marginTop: '15px', fontSize: '17px', fontWeight: '600', fontFamily: 'Helvetica', color: 'white', overflow: 'hidden', backgroundColor: '#fe3b08' }}>Reset data fields</p>
                         }
 
 
